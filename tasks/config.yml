@@ -18,3 +18,12 @@
   with_dict: "{{ eclipse_defaults.ui_id_prefs.settings }}"
   when: eclipse_ui_ide_pref_stat.stat.exists
   tags: [eclipse_config]
+  
+- name: Install eclipse desktop
+  template:
+    src: eclipse.desktop.j2
+    dest: /usr/share/applications/eclipse.desktop
+    owner: root
+    group: root
+    mode: 0644
+  tags: desktopfile  
